@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sources Jacques D'Escars</title>
+    <link rel="stylesheet" href="../style_sources.css">
+</head>
+<body>
+<header>
+        <div class="principale">
+            <div class="logo">
+                <a href="#">Ex<span>Archivis</span></a>
+            </div>
+            <ul>
+                <li>
+                    <a href="../../index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="../../apropos.html">À propos</a>
+                </li>
+                <li>
+                    <a href="../../paleographie.html">Paléographie</a>
+                </li>
+                <li>
+                    <a href="../../articles.html">Articles</a>
+                </li>
+                <li>
+                    <a href="../../archives.html">Archives</a>
+                </li>
+            </ul>
+        </div>
+</header>
+<div class="retour">
+    <a href="../../archives.html" class="btn">Liste des archives</a>
+</div>
+
+<main class="article">
+    <h1>Funérailles de Jacques D'Escars</h1>
+    <p>Acte de sépulture rédigé par Pierre Savy, curé de l'église Nôtre Dame de Miséricorde de Laroquebrou,
+    relatant la mort de Jacques d'Escars et ses funérailles en 1631 :</p>
+
+    <!-- Vignettes -->
+    <div class="thumbnails">
+        <img src="funerailles_1.jpg" class="thumbnail" onclick="toggleDocument(1)">
+        <img src="funerailles_2.jpg" class="thumbnail" onclick="toggleDocument(2)">
+        <img src="funerailles_3.jpg" class="thumbnail" onclick="toggleDocument(3)">
+    </div>
+
+    <!-- Zone principale où l'image et la transcription apparaissent -->
+    <div class="document-viewer">
+        <img id="mainImage" src="" style="display: none;">
+        <div id="transcription" style="display: none;"></div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-buttons">
+        <a href="#" class="footer-btn">Mentions Légales</a>
+        <a href="#" class="footer-btn">Généanet</a>
+    </div>
+    <p class="footer-credit">
+        © 2026 Ex Archivis
+    </p>
+</footer>
+
+<script>
+let currentPage = null; // pour savoir quelle page est affichée
+
+const transcriptions = {
+    1: `<p><b>[Page 1]</b></p>
+                <p><span style="padding-left:3em;">Année 1631</span></p>
+
+                <p>Le septiesme jour du moys de<br>
+                janvier mil six cens trente un, haut<br>
+                et puissant seigneur noble messire<br>
+                Jacques d’ESCARS et de MONTAL<br>
+                marquis de la Roque et de Montal<br>
+                estant allé à Paris ville cappitale<br>
+                du royaume et ayant esté veu<br>
+                amiablement de Sa Majesté feust<br>
+                attaqué dans son logis par<br>
+                de gens armés portans la<br>
+                livrée du Roy, en laquelle attaque<br>
+                il feust tué et son corps porté<br>
+                despuis Paris en la présant ville<br>
+                de la Roquebrou où il arriva<br>
+                le vendredi au soir vingt quatriesme<br>
+                dudit moys de janvier et a esté<br>
+                déposé en la chappelle St Nicolas<br>
+                du chasteau dudit Roquebrou despuis<br>
+                ledit jour, attendant que les apprestes<br>
+                des honneurs funèbres soyent<br>
+                faicts suivant le désir de<br>
+                haute et puissante dame noble<br>
+                Magdelaine de BOURBON vefue<br>
+                dudit seigneur où ledit corps<br>
+                repose encore, plaise à dieu<br>
+                tout puissant donner bon repos<br>
+                à l’âme d’iceluy au ciel.<br>
+                Est à noter que despuis le transport<br>
+                du corps de mondit seigneur jusques<br>
+                à son enterement qu’a esté le<br>
+                dix septiesme février audit an, personne<br>
+                n’est décédée en toute la présant ville<br>
+                et parroisse.<br>
+                [<em>Mort du marquis d’ESCARS arrivé<br>
+                à Paris, le corps duquel fût porté<br>
+                à la Roquebrou où les honneurs funèbres lui<br>
+                furent faites au désir de Magdelaine BOURBON sa vefue</em>]</p><br>
+                <p><em>Source : Archives départementales du Cantal, 2 EX 94/6-b, 1623-1648</em></p>`,
+    2: `<p><b>[Page 2]</b></p>
+    <p>Le dix septiesme jour du moys de février<br>
+    1631 le corps de Monseigneur le marquis de<br>
+    Montal et de Merville a esté apporté solemnellement<br>
+    de la chappelle St Nicolas en l’églize<br>
+    Nostre Dame de Miséricorde de la présant ville<br>
+    avec grand convoy et assemblée de noblesse<br>
+    de gentilshommes vassaux et autres<br>
+    spéciallement de messieurs les consuls<br>
+    et juge de ville d’Aurillac, avec<br>
+    quatres grands flambeaux et armes<br>
+    de ladite ville que lesdits sieurs consuls<br>
+    faisoyent porter pendantes ausdits<br>
+    flambeaux et encore sur le drap<br>
+    mortuaire de velours noir qui couvroyt<br>
+    le corps, et marchoyent lesdits consuls<br>
+    portans la livrée du Roy avec les premiers<br>
+    qui portoyent le doeuil, assavoir monsieur<br>
+    de St Chamans et les valets desdits<br>
+    consuls avec leurs bastons et robbes ordinaires<br>
+    précédans. Item estoyent assistans les<br>
+    officiers de justice des paroisses voisines<br>
+    de mondit feu seigneur tenans leur<br>
+    rang, d’un costé avec Messieurs<br>
+    les consuls dudit Roquebrou, de l’autre<br>
+    les écclésiastiques en nombre de<br>
+    quatre vingts dix huict sans compter<br>
+    les religieux de divers ordres.<br>
+    Le corps a esté porté par viii prebstres<br>
+    revestus de surpelis et le drap mortuaire<br>
+    de 4 gentilhommes vassaux.<br>
+    La cavalerie, l’infanterie, avec trompette<br>
+    et tabour, précédoyent avec dix chevaux<br>
+    bardes. Cent paouvres vestus de noir<br>
+    avec un flambeau allumé chacun à la main<br>
+    alloyent devant le clergé. Les curés et prebstres<br>
+    des paroisses voisines suivoyent avec leurs<br>
+    croix, la présant paroisse venoit la dernière avec<br>
+    la croix couverte d’un grand crespe, moy curé<br>
+    indigne faisant la levée du corps et tenant<br>
+    rang de curé avec mes presbtres.<br>
+    Monsieur l’abbé de Gramond crossé et mitré<br>
+    avec quatre de ses religieux revestus de<br>
+    pluviaux et dalmatiques de velours noir<br>
+    accompagnoyent le corps et firent l’office<br>
+    avec autant de solennité qu’un archevesque.</p><br>
+    <p><em>Source : Archives départementales du Cantal, 2 EX 94/6-b, 1623-1648</em></p>`,
+    3: `<p><b>[Page 3]</b></p>
+    <p>Le dix septiesme février 1631<br>
+    jour de l’enterement du corps de<br>
+    mondit seigneur le marquis, grande<br>
+    quantité de paouvres estant venue<br>
+    prendre l’aumosne qu’on distribuoit<br>
+    générallement sur le pont dudit Roquebrou<br>
+    à cause de la grande foule et présence<br>
+    desdits paouvres qu’on estimoit estre<br>
+    plus de 4000 en feurent crevés (?)<br>
+    suffoqués ou alangoris de faim<br>
+    qui restarent morts sur le tard<br>
+    jusques au nombre de quinze,<br>
+    parmi lesquels feust Jean<br>
+    Iquilhes fils à feu Anthoine<br>
+    aagé de 16 ans<br>
+    Item Jeanne del Batut ditte<br>
+    vulgairement La Cayrade<br>
+    aagée de 60 ans, lesquels<br>
+    ont esté ensevelis le lendemain<br>
+    au cimetière susdit.<br>
+    Plus ont esté apportés au<br>
+    cimetière de Brou autres troys<br>
+    paouvres garçons estrangers et<br>
+    illec ont esté ensevelis Requiescat Christus.<br> 
+    Les autres paouvres restans morts<br>
+    ont esté transférés ailleurs en<br>
+    leurs paroisses par les parents<br>
+    qui les ont recogneus.<br>
+    Et estime on le nombre des paouvres<br>
+    qui sont morts dans ladite presse<br>
+    envyron dix huict ou dix neuf<br>
+    lequel on n’a peu vérifier certaine-<br>
+    ment à cause du soudain transport<br>
+    qu’on a faict d’iceux ez paroisses<br>
+    circonvoisines. Plaise à Notre Seigneur mettre<br>
+    leurs ames au repos éternel.</p><br>
+    <p><em>Source : Archives départementales du Cantal, 2 EX 94/6-b, 1623-1648</em></p>`
+};
+
+const images = {
+    1: "funerailles_1.jpg",
+    2: "funerailles_2.jpg",
+    3: "funerailles_3.jpg"
+};
+
+function showDocument(n) {
+    const mainImage = document.getElementById("mainImage");
+    const transcription = document.getElementById("transcription");
+
+    // afficher l'image
+    mainImage.src = images[n];
+    mainImage.alt = "Page " + n;
+    mainImage.style.display = "block"; // rend l'image visible
+
+    // afficher la transcription
+    transcription.innerHTML = transcriptions[n];
+    transcription.style.display = "block";
+}
+
+function toggleDocument(n) {
+    const mainImage = document.getElementById("mainImage");
+    const transcription = document.getElementById("transcription");
+    const thumbnails = document.querySelectorAll(".thumbnail");
+
+    // Enlever la bordure active de toutes les miniatures
+    thumbnails.forEach(img => img.classList.remove("active"));
+
+    // Si on reclique sur la même page → fermer le viewer
+    if (currentPage === n) {
+        mainImage.style.display = "none";
+        transcription.style.display = "none";
+        transcription.innerHTML = "";
+        currentPage = null;
+    } else {
+        mainImage.src = images[n];
+        mainImage.alt = "Page " + n;
+        mainImage.style.display = "block";
+
+        transcription.innerHTML = transcriptions[n];
+        transcription.style.display = "block";
+
+        // Ajouter la bordure à la miniature cliquée
+        thumbnails[n - 1].classList.add("active");
+
+        currentPage = n;
+    }
+}
+</script>
+
+
+</body>
+</html>
