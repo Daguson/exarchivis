@@ -1,0 +1,236 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: century;
+}
+
+html, body {
+    height: 100%;      /* obligatoire */
+    margin: 0;          /* enlever marges par défaut */
+}
+
+body{
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; /* organise le contenu verticalement */
+    min-height: 100vh;      /* au moins la hauteur de la fenêtre */
+}
+
+header{
+    position: fixed;   /* fixe le header à l’écran */
+    top: 0;            /* en haut de la fenêtre */
+    left: 0;           /* bord gauche */
+    width: 100%;       /* prend toute la largeur */
+    z-index: 1000;     /* reste au-dessus du contenu */
+    background-color: #333;
+    height: 7.5vh;
+    background-size: cover;
+    background-position: center;
+}
+
+main{
+    padding-top: 2cm;
+    flex: 1; /* occupe tout l’espace restant */
+}
+
+main p{
+    text-align: justify;
+}
+
+footer {
+    background-color: #f8f8f8; /* couleur de fond */
+    text-align: center;         /* centrer le texte */
+    padding: 15px 0;            /* espace intérieur */
+    border-top: 1px solid #ddd; /* optionnel : ligne au-dessus */
+}
+
+.logo a{
+    color: #fff;
+    padding: 0px 20px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 900;
+    text-shadow: rgba(0,0,0,0.7);
+}
+
+.logo span{
+    color: rgb(238, 56, 11);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+ul{
+    list-style: none;
+    float: right;
+    display: flex;
+    margin-top: 20px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    margin: 10px;
+    font-weight: 500;
+    transition: 0.6s ease;
+}
+
+ul li a:hover{
+    background: #fff;
+    color: #000;
+}
+
+ul li.active a{
+    background: #fff;
+    color: #000;
+}
+
+.principale{
+    max-width: 114rem;
+    margin: 0 auto;
+}
+
+.titre{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.titre h1{
+    color: #fff;
+    font-size: 70px;
+}
+
+.retour a{
+    position: fixed;   /* fixe le bouton à l’écran */
+    top: 100px;      /* distance par rapport au bas de la fenêtre */
+    left: 140px;        /* distance par rapport à la gauche de la fenêtre */
+    z-index: 1000;     /* pour qu’il soit au-dessus des autres éléments */
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: #000;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 1px solid #000;
+    margin: 10px;
+    font-weight: 500;
+    transition: 0.6s ease;
+}
+
+.retour .btn::before {
+    content: "←"; /* Unicode flèche gauche */
+    margin-right: 12px; /* espace entre flèche et texte */
+    font-weight: bold; /* optionnel : rend la flèche plus visible */
+}
+
+.article {
+    max-width: 900px;
+    margin: 40px auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px auto;
+    margin-bottom: 30px;
+}
+
+.thumbnails img {
+    width: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.thumbnails img:hover {
+    border-color: #333;
+}
+
+.thumbnail {
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
+.thumbnail.active {
+    border: 8px solid #000; /* bordure épaisse */
+}
+
+.document-viewer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.document-viewer img {
+    width: 100%; /* image agrandie */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Bouton transcription */
+.transcription-btn {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.transcription-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Transcription */
+#transcription {
+    width: 80%;
+    max-width: 800px;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.sources {
+    border-top: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
+
+.sources h2 {
+    font-size: 1.2rem;
+}
+
+.sources li {
+    margin-bottom: 10px;
+}
+
+sup a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}

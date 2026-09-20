@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 1 Paléographie</title>
+    <link rel="stylesheet" href="style_exos.css">
+</head>
+<body>
+<header>
+        <div class="principale">
+            <div class="logo">
+                <a href="#">Ex<span>Archivis</span></a>
+            </div>
+            <ul>
+                <li>
+                    <a href="../index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="../apropos.html">A propos</a>
+                </li>
+                <li>
+                    <a href="paleographie.html">Paléographie</a>
+                </li>                
+                <li>
+                    <a href="../articles.html">Articles</a>
+                </li>
+                <li>
+                    <a href="../archives.html">Archives</a>
+                </li>
+            </ul>
+        </div>
+</header>
+<div class="retour">
+    <a href="../paleographie.html" class="btn">Liste des exercices</a>
+</div>
+
+<main class="article">
+    <p>Cliquez sur la miniature pour commencer :</p>
+    <!-- Vignettes -->
+    <div class="thumbnails">
+        <img src="paleo_1.png" class="thumbnail" onclick="toggleDocument(1)">
+    </div>
+
+    <!-- Zone principale où l'image et la transcription apparaissent -->
+    <div class="document-viewer">
+        <img id="mainImage" src="" style="display: none;">
+
+        <button id="transcriptionBtn" class="transcription-btn" style="display: none;">
+            Voir la transcription
+        </button>
+
+        <div id="transcription" style="display: none;"></div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="footer-buttons">
+        <a href="#" class="footer-btn">Mentions Légales</a>
+        <a href="#" class="footer-btn">Généanet</a>
+    </div>
+    <p class="footer-credit">
+        © 2026 Ex Archivis — Tous droits réservés
+    </p>
+</footer>
+
+<script>
+let currentPage = null; // pour savoir quelle page est affichée
+
+const transcriptions = {
+    1: `<p>
+        L'an mil six cens quarante neuf et le<br>
+        vingt unie[sme] du moys de janvier, avant midy,<br>
+        en la ville de la Roqueb[rou], a esté estab[lie] en sa p[er]sonne<br>
+        damoyselle Hélaine de Passefont, vefue de Pierre<br>
+        Duboys, habitante de lad[ite] ville, laquelle de son<br>
+        gré et vollonté etc., a faict et constitué son procur[eur]<br>
+        général et espécial Philipes Duboys, bourgeoix,<br>
+        son nepveu, pour donner purement et simplem[en]t<br>
+        à Philipes Duboys, filz de lad[ite] constituante et<br>
+        dud[it] déffunt Duboys, la some de troys cens<br>
+        livres ...<br>
+        </p>
+    <p><em>Source : Archives départementales du Cantal, 3 E 224/112</em></p>`
+};
+
+const images = {
+    1: "paleo_1.png",
+};
+
+function showDocument(n) {
+    const mainImage = document.getElementById("mainImage");
+    const transcription = document.getElementById("transcription");
+
+    // afficher l'image
+    mainImage.src = images[n];
+    mainImage.alt = "Page " + n;
+    mainImage.style.display = "block"; // rend l'image visible
+
+    // afficher la transcription
+    transcription.innerHTML = transcriptions[n];
+    transcription.style.display = "block";
+}
+
+function toggleDocument(n) {
+    const mainImage = document.getElementById("mainImage");
+    const transcriptionBtn = document.getElementById("transcriptionBtn");
+    const transcription = document.getElementById("transcription");
+    const thumbnails = document.querySelectorAll(".thumbnail");
+
+    // Enlever la bordure active de toutes les miniatures
+    thumbnails.forEach(img => img.classList.remove("active"));
+
+    // Si on reclique sur la même page → fermer le viewer
+    if (currentPage === n) {
+        mainImage.style.display = "none";
+        transcriptionBtn.style.display = "none";
+        transcription.style.display = "none";
+        transcription.innerHTML = "";
+        currentPage = null;
+    } else {
+        mainImage.src = images[n];
+        mainImage.alt = "Page " + n;
+        mainImage.style.display = "block";
+
+        transcriptionBtn.style.display = "block";
+        transcriptionBtn.textContent = "Voir la transcription";
+
+        transcription.innerHTML = transcriptions[n];
+        transcription.style.display = "none";
+
+        // Ajouter la bordure à la miniature cliquée
+        thumbnails[n - 1].classList.add("active");
+
+        currentPage = n;
+    }
+}
+
+transcriptionBtn.addEventListener("click", function() {
+
+    if (transcription.style.display === "none") {
+        transcription.style.display = "block";
+        transcriptionBtn.textContent = "Masquer la transcription";
+    } else {
+        transcription.style.display = "none";
+        transcriptionBtn.textContent = "Voir la transcription";
+    }
+
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: century;
+}
+
+html, body {
+    height: 100%;      /* obligatoire */
+    margin: 0;          /* enlever marges par défaut */
+}
+
+body{
+    /*
+    background-color: #f9f9f9;
+    */
+    background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url(images/vintage-grungy-textured-paper-background.jpg);
+    display: flex;
+    flex-direction: column; /* organise le contenu verticalement */
+    min-height: 100vh;      /* au moins la hauteur de la fenêtre */
+    background-size: cover;
+    background-position: center;
+}
+
+footer {
+    background-color: #333; /* couleur de fond */
+    color: #fff;
+    text-align: center;         /* centrer le texte */
+    padding: 15px 0;            /* espace intérieur */
+    border-top: 1px solid #ddd; /* optionnel : ligne au-dessus */
+    margin-top: auto;
+}
+
+header{
+    /*
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(images/differents-types-archives.jpg);
+    height: 100vh;
+    */
+    position: fixed;   /* fixe le header à l’écran */
+    top: 0;            /* en haut de la fenêtre */
+    left: 0;           /* bord gauche */
+    width: 100%;       /* prend toute la largeur */
+    z-index: 1000;     /* reste au-dessus du contenu */
+    background-color: #333;
+    height: 7.2vh;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo a{
+    color: #fff;
+    padding: 0px 20px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 900;
+    text-shadow: rgba(0,0,0,0.7);
+}
+
+.logo span{
+    color: rgb(238, 56, 11);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+ul{
+    list-style: none;
+    float: right;
+    display: flex;
+    margin-top: 20px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    margin: 10px;
+    font-weight: 500;
+    transition: 0.6s ease;
+}
+
+ul li a:hover{
+    background: #fff;
+    color: #000;
+}
+
+ul li.active a{
+    background: #fff;
+    color: #000;
+}
+
+.principale{
+    max-width: 114rem;
+    margin: 0 auto;
+}
+
+.titre {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.titre h1 {
+    color: #333;
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.titre::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: #333;
+    margin: 20px auto 0;
+}
+
+.bouton{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bouton a{
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+}
+
+.btn{
+    transition: 0.06s ease;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+header:has(.btn:nth-child(2):hover){
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(images/8404754-scaled.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.cartes {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.carte {
+    width: 330px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.carte img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.carte-contenu {
+    padding: 20px;
+    text-align: center;
+}
+
+.carte-contenu h2 {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 1.6rem;
+}
+
+.carte-contenu p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.carte-contenu a {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.carte-contenu a:hover {
+    background-color: #333;
+    color: #fff;
+}
