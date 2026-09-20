@@ -2,16 +2,27 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ex Archivis - A propos</title>
+    <title>Ex Archivis - Paléographie</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-            <div class="principale">
-                <div class="logo">
-                    <a href="#">Ex<span>Archivis</span></a>
-                </div>
-                <ul>
+        <div class="principale">
+
+            <div class="logo">
+                <a href="#">Ex<span>Archivis</span></a>
+            </div>
+
+            <nav>
+                <button 
+                    class="menu-toggle"
+                    type="button" 
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+                <ul class="menu">
                     <li>
                         <a href="index.html">Accueil</a>
                     </li>
@@ -28,22 +39,41 @@
                         <a href="archives.html">Archives</a>
                     </li>
                 </ul>
-            </div>
+            </nav>
+        </div>
     </header>
-    <div class="titre">
-        <h1>Exercices de paléographie</h1>
-    </div>
-    <div class="cartes">
-        <div class="carte">
-            <img src="paleographie/paleo_1.png" alt="Document ancien en paléographie">
-            <div class="carte-contenu">
-                <h2>Exercice 1 (facile)</h2>
-                <a href="paleographie/paleo_exo_1.html">Je me lance →</a>
+
+    <main class="contenu">
+
+        <div class="titre">
+            <h1>Exercices de paléographie</h1>
+        </div>
+
+        <div class="cartes">
+            <div class="carte">
+                <img src="paleographie/paleo_1.png" alt="Document ancien en paléographie">
+                <div class="carte-contenu">
+                    <h2>Exercice 1 (facile)</h2>
+                    <a href="paleographie/paleo_exo_1.html">Je me lance →</a>
+                </div>
             </div>
         </div>
-    </div>
+
+    </main>
+
     <footer>
         <p>© 2026 Ex Archivis — Tous droits réservés</p>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menu.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", isOpen);
+        });
+    </script>  
+
 </body>
 </html>

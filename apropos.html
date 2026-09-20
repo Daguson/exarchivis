@@ -7,11 +7,22 @@
 </head>
 <body>
     <header>
-            <div class="principale">
-                <div class="logo">
-                    <a href="#">Ex<span>Archivis</span></a>
-                </div>
-                <ul>
+        <div class="principale">
+
+            <div class="logo">
+                <a href="#">Ex<span>Archivis</span></a>
+            </div>
+
+            <nav>
+                <button 
+                    class="menu-toggle"
+                    type="button" 
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+                <ul class="menu">
                     <li>
                         <a href="index.html">Accueil</a>
                     </li>
@@ -28,10 +39,28 @@
                         <a href="archives.html">Archives</a>
                     </li>
                 </ul>
-            </div>
+            </nav> 
+        </div>
     </header>
+
+    <main class="contenu">
+
+    </main>
+
     <footer>
         <p>© 2026 Ex Archivis — Tous droits réservés</p>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menu.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", isOpen);
+        });
+    </script>    
+    
+
 </body>
 </html>
